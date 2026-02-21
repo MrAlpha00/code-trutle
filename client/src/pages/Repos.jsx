@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
-import { ShieldAlert, Star, Activity, Plus, Key } from 'lucide-react';
+import { ShieldAlert, Star, Activity, Plus, Key, FolderGit2 } from 'lucide-react';
 
 export default function Repos() {
     const [repos, setRepos] = useState([]);

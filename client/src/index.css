@@ -3,7 +3,21 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-gray-50 text-gray-900 antialiased;
+    @apply bg-gray-50 text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-premium;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-premium-hover hover:-translate-y-1 hover:border-blue-200;
   }
 }
