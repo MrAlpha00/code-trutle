@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String       @id @default(uuid())
+  name         String
+  email        String       @unique
+  password     String
+  role         Role         @default(USER)
+  createdAt    DateTime     @default(now())
+  repositories Repository[]
+}
+
+model Repository {
+  id            String   @id @default(uuid())
+  name          String
+  githubRepoUrl String
+  apiKey        String   @unique
+  user          User     @relation(fields: [userId], references: [id])
+  userId        String
+  createdAt     DateTime @default(now())
+  reviews       Review[]
+}
+
+model Review {
+  id            String     @id @default(uuid())
+  repository    Repository @relation(fields: [repositoryId], references: [id])
+  repositoryId  String
+  prNumber      String?
+  diffSummary   String?
+  aiReview      String
+  qualityScore  Int
+  securityRisk  RiskLevel
+  createdAt     DateTime   @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
