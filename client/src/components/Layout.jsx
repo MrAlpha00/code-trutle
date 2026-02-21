@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { LayoutDashboard, FolderGit2, History, LogOut } from 'lucide-react';
 import clsx from 'clsx';
+import Footer from './Footer';
 
 const navItems = [
     { name: 'Dashboard', path: '/', icon: LayoutDashboard },
@@ -68,10 +69,11 @@ export default function Layout() {
             </div>
 
             {/* Main content */}
-            <main className="flex-1 overflow-auto">
-                <div className="p-8">
+            <main className="flex-1 overflow-auto flex flex-col bg-gray-50">
+                <div className="p-8 flex-1">
                     <Outlet />
                 </div>
+                <Footer />
             </main>
         </div>
     );
