@@ -12,7 +12,7 @@ export default function Repos() {
 
     const fetchRepos = async () => {
         try {
-            const res = await axios.get('http://localhost:3000/api/repos', {
+            const res = await axios.get('/api/repos', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setRepos(res.data);
@@ -30,7 +30,7 @@ export default function Repos() {
     const handleCreate = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/api/repos',
+            await axios.post('/api/repos',
                 { name, githubRepoUrl },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -45,7 +45,7 @@ export default function Repos() {
     const regenerateKey = async (id) => {
         if (!confirm('Are you sure? This will invalidate the old API key.')) return;
         try {
-            await axios.post(`http://localhost:3000/api/repos/${id}/regenerate-key`, {}, {
+            await axios.post(`/api/repos/${id}/regenerate-key`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchRepos();

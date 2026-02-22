@@ -51,6 +51,10 @@ app.use('/review', reviewRoutes);
 app.use('/v1/chat/completions', openaiRoutes);
 
 
-app.listen(PORT, () => {
-    console.log(`🐢 Code Turtle SaaS running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`🐢 Code Turtle SaaS running on http://localhost:${PORT}`);
+    });
+}
+
+export default app;

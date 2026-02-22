@@ -9,10 +9,12 @@
   },
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "build": "cd client && npm install --force && npm run build",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^7.4.1",
+    "@prisma/client": "^6.4.1",
     "axios": "^1.6.7",
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
@@ -23,6 +25,6 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.14",
-    "prisma": "^7.4.1"
+    "prisma": "^6.4.1"
   }
 }
