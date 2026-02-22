@@ -6,9 +6,9 @@ import clsx from 'clsx';
 import Footer from './Footer';
 
 const navItems = [
-    { name: 'Dashboard', path: '/', icon: LayoutDashboard },
-    { name: 'Repositories', path: '/repos', icon: FolderGit2 },
-    { name: 'Reviews', path: '/reviews', icon: History },
+    { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
+    { name: 'Repositories', path: '/dashboard/repos', icon: FolderGit2 },
+    { name: 'Reviews', path: '/dashboard/reviews', icon: History },
 ];
 
 export default function Layout() {
